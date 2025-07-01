@@ -3,6 +3,13 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  //  build: {
+  //   outDir: 'dist',
+  // },
+  // Ensure history fallback works on Netlify
+  // server: {
+  //   historyApiFallback: true,
+  // }
 })
 
 
