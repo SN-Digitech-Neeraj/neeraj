@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css'; // ✅ Bootstrap CSS
 import '@fortawesome/fontawesome-free/css/all.min.css'; // ✅ Font Awesome
@@ -14,11 +15,13 @@ import { AuthProvider } from './components/pages/AuthContext.jsx';
 
 
 createRoot(document.getElementById('root')).render(
+ 
  <BrowserRouter>
 
  <AuthProvider>
   <App />
  </AuthProvider>
 
-  </BrowserRouter>,
+  </BrowserRouter>
+  ,
 )

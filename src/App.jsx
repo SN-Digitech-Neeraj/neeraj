@@ -1,109 +1,104 @@
+import React from 'react';
 import { Routes, Route, Navigate } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-// inside your return
-<>
-  <Routes>{/* your routes */}</Routes>
-  <ToastContainer />
-</>
-
+import { Suspense, lazy } from "react";
 
 // Login Pages
-import Login from "./components/pages/login/Login";
-// import Logins from "./components/pages/login/Logins";
-import Dashboard from "./components/pages/Dashboard/dashboard/Dashboard";
+const Login = lazy(() => import("./components/pages/login/Login"));
+const Dashboard = lazy(() => import("./components/pages/Dashboard/dashboard/Dashboard"));
 
 // Promotional Management
-import Banner from "./components/pages/banner/Banner";
-import Ads from "./components/pages/Promotion_Management/ads/Ads";
-import Coupon from "./components/pages/coupon/Coupon";
-import Notification from "./components/pages/notification/Notification";
+const Banner = lazy(() => import("./components/pages/banner/Banner"));
+const Ads = lazy(() => import("./components/pages/Promotion_Management/ads/Ads"));
+const Coupon = lazy(() => import("./components/pages/coupon/Coupon"));
+const Notification = lazy(() => import("./components/pages/notification/Notification"));
 
 // Order Management
-import Order from "./components/pages/order/Order";
-import Pending from "./components/pages/order/Pending";
-import Confirm from "./components/pages/order/Confirm";
-import Pickup from "./components/pages/order/Pickup";
-import Ontheway from "./components/pages/order/Ontheway";
-import Deliver from "./components/pages/order/Deliver";
-import Cancel from "./components/pages/order/Cancel";
+const Order = lazy(() => import("./components/pages/order/Order"));
+const Pending = lazy(() => import("./components/pages/order/Pending"));
+const Confirm = lazy(() => import("./components/pages/order/Confirm"));
+const Pickup = lazy(() => import("./components/pages/order/Pickup"));
+const Ontheway = lazy(() => import("./components/pages/order/Ontheway"));
+const Deliver = lazy(() => import("./components/pages/order/Deliver"));
+const Cancel = lazy(() => import("./components/pages/order/Cancel"));
 
 // Sidebar or other layouts (optional)
-import Processing from "./components/pages/order/Processing";
-import Layout from "./components/Layout";
-import Reviews from "./components/pages/reviews/Reviews";
-import ColorList from "./components/pages/Colorlist/ColorList";
-import SizeList from "./components/pages/sizelist/SizeList";
-import UnitList from "./components/pages/unitlist/UnitList";
-import Customers from "./components/pages/customers/Customer";
-import Employee from "./components/pages/user_management/employees/Emoloyee";
-import Business from "./components/pages/business_management/business_setting/business_setup/Business";
-import Verification from "./components/pages/business_management/business_setting/verification/verification";
-import Category from "./components/pages/category/Category";
-import SubCategory from "./components/pages/category/SubCategory";
-import EditCategory from "./components/pages/category/EditCategory";
-import Products from "./components/pages/category/Products";
-import EditProducts from "./components/pages/category/EditProducts";
-import FlashSales from "./components/pages/category/FlashSalses";
-import EditFlashSales from "./components/pages/category/EditFlashSales";
-import Support from "./components/pages/support/Support";
-import SupportMessage from "./components/pages/support/SupportMessage";
-import EditBanner from "./components/pages/editbanner/EditBanner";
-import EditBoucher from "./components/pages/couponModal/EditBoucher";
-import OrderDetails from "./components/pages/order/OrderDetails";
-import ProductDetails from "./components/pages/category/ProductDetails";
-import EditFlashable from "./components/pages/category/EditFlashable";
-import Language from "./components/pages/language/Language";
-import EditLanguage from "./components/pages/language/EditLanguage";
-import CreateLanguage from "./components/pages/language/CreateLanguage";
-import PaymentGateways from "./components/pages/payments/paymentGateway/PaymentGateways";
-import SMSGateways from "./components/pages/payments/smsGateway/SMSGateways";
-import PusherSetup from "./components/pages/payments/pusherSetup/PusherSetup";
-import MailConfig from "./components/pages/payments/mailConfig/MailConfig";
-import Firebase from "./components/pages/payments/firebase/Firebase";
-import BulkExport from "./components/pages/import_export/BulkExport";
 
-import GalleryImport from "./components/pages/import_export/GalleryImport";
-import BulkImport from "./components/pages/import_export/BulkImport";
-import UploadZipFile from "./components/pages/import_export/UploadZipFile";
-import ProfileDetails from "./components/pages/header/ProfileDetails";
-import EditProfileDetails from "./components/pages/header/EditProfileDetails";
-import AdminSetting from "./components/pages/header/AdminSetting";
-import ChangePassword from "./components/pages/header/ChangePassword";
-import Notifications from "./components/pages/header/Notifications";
-import BrandList from "./components/pages/productVarient/Brand";
-import General from "./components/pages/business_management/business_setting/general_setting/General";
-import ManageDelivery from "./components/pages/business_management/business_setting/delivery_charge/ManageDelivery";
-import EditCity from "./components/pages/business_management/business_setting/delivery_charge/EditCity";
-import ManageCity from "./components/pages/business_management/business_setting/delivery_charge/ManageCity";
-import CreateNewDelivery from "./components/pages/business_management/business_setting/delivery_charge/CreateNewDelivery";
-import AddNewCity from "./components/pages/business_management/business_setting/delivery_charge/AddNewCity";
-import ImportCity from "./components/pages/business_management/business_setting/delivery_charge/ImportCity";
-import ThemeColor from "./components/pages/business_management/business_setting/theme_color/ThemeColor";
-import SocialLink from "./components/pages/business_management/business_setting/social_links/SocialLink";
-import TicketIssue from "./components/pages/business_management/business_setting/ticke_issue-type/TicketIssue";
-import PrivacyPolicy from "./components/pages/legal-pages/privacyPolicy/PrivacyPolicy";
-import EditPrivacyPolicy from "./components/pages/legal-pages/privacyPolicy/EditPrivacypolicy";
-import CreateNewCategory from "./components/pages/category/CreateNewCategory";
-import CreateSubCategory from "./components/pages/category/CreateSubCategory";
-import AddNewProduct from "./components/pages/category/AddNewProduct";
-import GenerateBarcode from "./components/pages/category/GenerateBarcode";
-import RolesAndPermissions from "./components/pages/role&permission/Role&Permission";
-import TermAndCondition from "./components/pages/legal-pages/term-and-condition/TermAndCondition";
-import EditTermAndCondition from "./components/pages/legal-pages/term-and-condition/EditTermAndCondition";
-import ReturnRefund from "./components/pages/legal-pages/return_refund/ReturnRefund";
-import EditReturnRefund from "./components/pages/legal-pages/return_refund/EditReturnRefund";
-import ShippingDeliveryPolicy from "./components/pages/legal-pages/Shipping-and-delivery/ShipingAndDelivery";
-import EditShippingDelivery from "./components/pages/legal-pages/Shipping-and-delivery/EditShippingDelivery";
-import LegalAboutUs from "./components/pages/legal-pages/abous-us/LegalAboutUs";
-import EditAboutUs from "./components/pages/legal-pages/abous-us/EditLegalAboutUs";
-import CreateEmployee from "./components/pages/user_management/employees/CreateEmployee";
-import EmployeePermissions from "./components/pages/user_management/employees/EmployeePermission";
-import Return from "./components/pages/order/Return";
-import Replacement from "./components/pages/order/Replacement";
-import LegalContactUs from "./components/pages/legal-pages/contact-us/LegalContactUs";
-import PrivateRoute from "./components/pages/PrivateRoute";
+const Processing = lazy(() => import("./components/pages/order/Processing"));
+const Layout = lazy(() => import("./components/Layout"));
+const Reviews = lazy(() => import("./components/pages/reviews/Reviews"));
+const ColorList = lazy(() => import("./components/pages/Colorlist/ColorList"));
+const SizeList = lazy(() => import("./components/pages/sizelist/SizeList"));
+const UnitList = lazy(() => import("./components/pages/unitlist/UnitList"));
+const Customers = lazy(() => import("./components/pages/customers/Customer"));
+const Employee = lazy(() => import("./components/pages/user_management/employees/Emoloyee"));
+const Business = lazy(() => import("./components/pages/business_management/business_setting/business_setup/Business"));
+const Verification = lazy(() => import("./components/pages/business_management/business_setting/verification/verification"));
+const Category = lazy(() => import("./components/pages/category/Category"));
+const SubCategory = lazy(() => import("./components/pages/category/SubCategory"));
+const EditCategory = lazy(() => import("./components/pages/category/EditCategory"));
+const Products = lazy(() => import("./components/pages/category/Products"));
+const EditProducts = lazy(() => import("./components/pages/category/EditProducts"));
+const FlashSales = lazy(() => import("./components/pages/category/FlashSalses"));
+const EditFlashSales = lazy(() => import("./components/pages/category/EditFlashSales"));
+const Support = lazy(() => import("./components/pages/support/Support"));
+const SupportMessage = lazy(() => import("./components/pages/support/SupportMessage"));
+const EditBanner = lazy(() => import("./components/pages/editbanner/EditBanner"));
+const EditBoucher = lazy(() => import("./components/pages/couponModal/EditBoucher"));
+const OrderDetails = lazy(() => import("./components/pages/order/OrderDetails"));
+const ProductDetails = lazy(() => import("./components/pages/category/ProductDetails"));
+const EditFlashable = lazy(() => import("./components/pages/category/EditFlashable"));
+const Language = lazy(() => import("./components/pages/language/Language"));
+const EditLanguage = lazy(() => import("./components/pages/language/EditLanguage"));
+const CreateLanguage = lazy(() => import("./components/pages/language/CreateLanguage"));
+const PaymentGateways = lazy(() => import("./components/pages/payments/paymentGateway/PaymentGateways"));
+const SMSGateways = lazy(() => import("./components/pages/payments/smsGateway/SMSGateways"));
+const PusherSetup = lazy(() => import("./components/pages/payments/pusherSetup/PusherSetup"));
+const MailConfig = lazy(() => import("./components/pages/payments/mailConfig/MailConfig"));
+const Firebase = lazy(() => import("./components/pages/payments/firebase/Firebase"));
+const BulkExport = lazy(() => import("./components/pages/import_export/BulkExport"));
+const GalleryImport = lazy(() => import("./components/pages/import_export/GalleryImport"));
+const BulkImport = lazy(() => import("./components/pages/import_export/BulkImport"));
+const UploadZipFile = lazy(() => import("./components/pages/import_export/UploadZipFile"));
+const ProfileDetails = lazy(() => import("./components/pages/header/ProfileDetails"));
+const EditProfileDetails = lazy(() => import("./components/pages/header/EditProfileDetails"));
+const AdminSetting = lazy(() => import("./components/pages/header/AdminSetting"));
+const ChangePassword = lazy(() => import("./components/pages/header/ChangePassword"));
+const Notifications = lazy(() => import("./components/pages/header/Notifications"));
+const BrandList = lazy(() => import("./components/pages/productVarient/Brand"));
+const General = lazy(() => import("./components/pages/business_management/business_setting/general_setting/General"));
+const ManageDelivery = lazy(() => import("./components/pages/business_management/business_setting/delivery_charge/ManageDelivery"));
+const EditCity = lazy(() => import("./components/pages/business_management/business_setting/delivery_charge/EditCity"));
+const ManageCity = lazy(() => import("./components/pages/business_management/business_setting/delivery_charge/ManageCity"));
+const CreateNewDelivery = lazy(() => import("./components/pages/business_management/business_setting/delivery_charge/CreateNewDelivery"));
+const AddNewCity = lazy(() => import("./components/pages/business_management/business_setting/delivery_charge/AddNewCity"));
+const ImportCity = lazy(() => import("./components/pages/business_management/business_setting/delivery_charge/ImportCity"));
+const ThemeColor = lazy(() => import("./components/pages/business_management/business_setting/theme_color/ThemeColor"));
+const SocialLink = lazy(() => import("./components/pages/business_management/business_setting/social_links/SocialLink"));
+const TicketIssue = lazy(() => import("./components/pages/business_management/business_setting/ticke_issue-type/TicketIssue"));
+const PrivacyPolicy = lazy(() => import("./components/pages/legal-pages/privacyPolicy/PrivacyPolicy"));
+const EditPrivacyPolicy = lazy(() => import("./components/pages/legal-pages/privacyPolicy/EditPrivacypolicy"));
+const CreateNewCategory = lazy(() => import("./components/pages/category/CreateNewCategory"));
+const CreateSubCategory = lazy(() => import("./components/pages/category/CreateSubCategory"));
+const AddNewProduct = lazy(() => import("./components/pages/category/AddNewProduct"));
+const GenerateBarcode = lazy(() => import("./components/pages/category/GenerateBarcode"));
+const RolesAndPermissions = lazy(() => import("./components/pages/role&permission/Role&Permission"));
+const TermAndCondition = lazy(() => import("./components/pages/legal-pages/term-and-condition/TermAndCondition"));
+const EditTermAndCondition = lazy(() => import("./components/pages/legal-pages/term-and-condition/EditTermAndCondition"));
+const ReturnRefund = lazy(() => import("./components/pages/legal-pages/return_refund/ReturnRefund"));
+const EditReturnRefund = lazy(() => import("./components/pages/legal-pages/return_refund/EditReturnRefund"));
+const ShippingDeliveryPolicy = lazy(() => import("./components/pages/legal-pages/Shipping-and-delivery/ShipingAndDelivery"));
+const EditShippingDelivery = lazy(() => import("./components/pages/legal-pages/Shipping-and-delivery/EditShippingDelivery"));
+const LegalAboutUs = lazy(() => import("./components/pages/legal-pages/abous-us/LegalAboutUs"));
+const EditAboutUs = lazy(() => import("./components/pages/legal-pages/abous-us/EditLegalAboutUs"));
+const CreateEmployee = lazy(() => import("./components/pages/user_management/employees/CreateEmployee"));
+const EmployeePermissions = lazy(() => import("./components/pages/user_management/employees/EmployeePermission"));
+const Return = lazy(() => import("./components/pages/order/Return"));
+const Replacement = lazy(() => import("./components/pages/order/Replacement"));
+const LegalContactUs = lazy(() => import("./components/pages/legal-pages/contact-us/LegalContactUs"));
+const PrivateRoute = lazy(() => import("./components/pages/PrivateRoute"));
+
 
 
 
@@ -113,6 +108,7 @@ function App() {
 
   return (
     <>
+    <Suspense fallback={<div className="text-center mt-5">Loading...</div>}>
       <Routes>
         <Route path="/login" element={<Login />} />
 
@@ -244,7 +240,9 @@ function App() {
         {!isAuthenticated && <Route path="*" element={<Navigate to="/" />} />}
         {/* Toastify container */}
       </Routes>
-      <ToastContainer position="top-right" autoClose={3000} />
+      </Suspense>
+      {/* <ToastContainer position="top-right" autoClose={3000} /> */}
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick pauseOnFocusLoss draggable pauseOnHover theme="light" />
     </>
   );
 }

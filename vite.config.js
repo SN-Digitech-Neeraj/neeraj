@@ -1,21 +1,42 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+// import { defineConfig } from 'vite';
+// import react from '@vitejs/plugin-react';
+// import { visualizer } from 'rollup-plugin-visualizer'
+
+// export default defineConfig({
+//   plugins: [
+//     react(),
+//     visualizer({ open: true }), // Generates a visual report
+//   ],
+//   build: {
+//     rollupOptions: {
+//       output: {
+//         manualChunks(id) {
+//           if (id.includes('node_modules')) {
+//             return 'vendor'; // Split vendor libraries
+//           }
+//           if (id.includes('src/components/')) {
+//             return 'components'; // Split components into their own chunk
+//           }
+//         },
+//       },
+//     },
+//   },
+// });
+
+
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  plugins: [react()],
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            // Split vendor libraries into separate chunks
-            return id.split('node_modules/')[1].split('/')[0].toString();
-          }
-        },
-      },
-      chunkSizeWarningLimit: 200, // Adjust the limit if necessary
-    },
-  },
-})
-
-
+  base: '/',
+  plugins: [
+    react({
+      babel: {
+        plugins: ['@babel/plugin-transform-react-jsx']
+      }
+    })
+  ],
+  optimizeDeps: {
+    include: ['react', 'react-dom']
+  }
+});
