@@ -13,7 +13,7 @@ export default defineConfig({
           }
         },
       },
-      chunkSizeWarningLimit: 500, // Adjust the limit if necessary
+      chunkSizeWarningLimit: 300, // Adjust the limit if necessary
     },
   },
 })
