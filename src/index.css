@@ -1763,7 +1763,7 @@ table.dataTable tfoot td {
 }
 
 .app-header.header-text-dark .app-header-logo .logo-src {
-    background: url(assets/logoWhite.png);
+    /* background: url(./logoWhite.png); */
 }
 
 .app-sidebar {

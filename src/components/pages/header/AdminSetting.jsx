@@ -181,7 +181,7 @@ const AdminSetting = () => {
                                 <div className="col-md-6 col-lg-4 mt-4">
                                     <div className="mt-4 d-flex align-items-center justify-content-center">
                                         <div className="logoratio">
-                                            <img id="previewFooterLogo" src="https://demo.alicom.app/assets/logoWhite.png" alt="" width="100%" loading="lazy" />
+                                            <img id="previewFooterLogo" src="#" alt="" width="100%" loading="lazy" />
                                         </div>
                                     </div>
                                     <div className="mt-3">
