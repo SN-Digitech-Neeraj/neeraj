@@ -1,31 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
- 
+
+// Lazy-load CKEditor and ClassicEditor in the browser only
 const EditReturnRefund = () => {
   const [title, setTitle] = useState("Return and Refund Policy");
   const [description, setDescription] = useState(
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod."
   );
- 
+
+  const [CKEditorComp, setCKEditorComp] = useState(null);
+  const ClassicEditorRef = useRef(null);
+
+  useEffect(() => {
+    // Dynamically import only on the client
+    Promise.all([
+      import('@ckeditor/ckeditor5-react'),
+      import('@ckeditor/ckeditor5-build-classic')
+    ]).then(([ckeditorModule, classicEditorModule]) => {
+      setCKEditorComp(() => ckeditorModule.CKEditor);
+      ClassicEditorRef.current = classicEditorModule.default;
+    });
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
- 
+
     const formData = new FormData();
     formData.append("title", title);
     formData.append("description", description);
     formData.append("_token", "B0v8yvd33pkhf4BL1syxY2BcAjS7O3EFGT43s3uW");
- 
+
     console.log("Form Submitted:", { title, description });
- 
-    // Example fetch:
+
     // fetch('/your/api/endpoint', {
     //   method: 'POST',
     //   body: formData
     // });
   };
- 
+
   return (
     <div className="app-main-inner">
       <div className="container-fluid">
@@ -39,7 +51,7 @@ const EditReturnRefund = () => {
               <i className="fa fa-arrow-left"></i> Back
             </Link>
           </div>
- 
+
           <form onSubmit={handleSubmit} encType="multipart/form-data">
             <div className="card border-0 rounded-12">
               <div className="card-body">
@@ -58,17 +70,19 @@ const EditReturnRefund = () => {
                     onChange={(e) => setTitle(e.target.value)}
                   />
                 </div>
- 
+
                 <div className="mt-3">
                   <label className="fw-bold">Content</label>
-                  <CKEditor
-                    editor={ClassicEditor}
-                    data={description}
-                    onChange={(event, editor) => {
-                      const data = editor.getData();
-                      setDescription(data);
-                    }}
-                  />
+                  {CKEditorComp && ClassicEditorRef.current && (
+                    <CKEditorComp
+                      editor={ClassicEditorRef.current}
+                      data={description}
+                      onChange={(event, editor) => {
+                        const data = editor.getData();
+                        setDescription(data);
+                      }}
+                    />
+                  )}
                 </div>
               </div>
               <div className="card-footer text-center">
@@ -83,7 +97,5 @@ const EditReturnRefund = () => {
     </div>
   );
 };
- 
+
 export default EditReturnRefund;
- 
- 
