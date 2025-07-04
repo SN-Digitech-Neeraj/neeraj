@@ -32,7 +32,7 @@ const BannerList = () => {
 
   return (
     <div className="container-fluid">
-      <div className="d-flex align-items-center flex-wrap gap-3 justify-content-between px-3">
+      <div className="d-flex align-items-center flex-wrap gap-3 justify-content-between">
         <h4>Banner List</h4>
         <a href="/admin/banners/edit" className="btn py-2 btn-primary">
           <i className="fa fa-plus-circle"></i> Create New
@@ -66,12 +66,11 @@ const BannerList = () => {
                           data-bs-placement="left"
                           title="Status Toggle"
                         >
-                          <a href={`https://demo.alicom.app/admin/banner/${banner.id}/toogle`}>
-                            <input type="checkbox" defaultChecked />
-                            <span className="slider round"></span>
-                          </a>
+                          <input type="checkbox" defaultChecked />
+                          <span className="slider round"></span>
                         </label>
                       </td>
+
                       <td className="text-center">
                         <div className="d-flex gap-2 justify-content-center">
                           <Link

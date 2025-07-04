@@ -1763,7 +1763,7 @@ table.dataTable tfoot td {
 }
 
 .app-header.header-text-dark .app-header-logo .logo-src {
-    /* background: url(./logoWhite.png); */
+    background: url(./logoWhite.png);
 }
 
 .app-sidebar {
@@ -9230,9 +9230,9 @@ tr:not(:first-child):not(.ui-datepicker-calendar tr) {
 }
 
 @media (max-width: 580px) {
-     body{
+     /* body{
         padding: 20px;
-    }
+    } */
     .login-section {
         display: block;
         padding-top: 40px;
@@ -9250,6 +9250,9 @@ tr:not(:first-child):not(.ui-datepicker-calendar tr) {
     }
 
     .app-main .app-main-inner {
+        margin-left: -40px;
+    }
+     .app-wrapper-footer{
         margin-left: -40px;
     }
 }
@@ -9335,7 +9338,7 @@ tr:not(:first-child):not(.ui-datepicker-calendar tr) {
     }
 
     .app-main .app-main-inner {
-        margin-left: -40px;
+        margin-left: -30px;
     }
 }
 
@@ -9359,7 +9362,7 @@ tr:not(:first-child):not(.ui-datepicker-calendar tr) {
     }
 
     .app-main .app-main-inner {
-        margin-left: -30px;
+        margin-left: -25px;
     }
 }
 
@@ -9373,7 +9376,11 @@ tr:not(:first-child):not(.ui-datepicker-calendar tr) {
     }
 
     .app-main .app-main-inner {
-        margin-left: -30px;
+        margin-left: -25px;
+    }
+
+    .app-wrapper-footer{
+        margin-left: -40px;
     }
 }
 
