@@ -1,5 +1,3 @@
-
-import React from 'react';
 import { Outlet } from "react-router-dom";
 import { useState } from "react"; // Import useState
 import Sidebar from "./pages/sidebar/Sidebar";
